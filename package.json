@@ -7,8 +7,6 @@
   },
   "scripts": {
     "test": "npx truffle test",
-    "test:gas": "GAS_REPORTER=true npm test",
-    "coverage": "npx solidity-coverage",
     "build-contracts": "npx sol-merger './contracts/**/*.sol' ./build_merged",
     "lint": "npx solium --dir ./contracts"
   },
@@ -18,19 +16,18 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
-    "chai": "^4.1.2",
-    "chai-as-promised": "^7.1.1",
     "dotenv": "^6.0.0",
     "ganache-cli": "^6.1.6",
     "eth-gas-reporter": "^0.1.9",
     "decimal.js": "^10.0.1",
     "mocha": "^5.2.0",
     "sol-merger": "^0.1.2",
-    "solidity-coverage": "^0.5.5",
     "solium": "^1.1.8",
     "truffle": "^4.1.13",
-    "web3": "^1.0.0-beta.34",
-    "truffle-hdwallet-provider": "0.0.5",
-    "truffle-privatekey-provider": "0.1.0"
+    "web3": "^1.0.0-beta.34"
+  },
+  "dependencies": {
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1"
   }
 }

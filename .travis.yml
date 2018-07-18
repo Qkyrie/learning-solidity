@@ -12,15 +12,14 @@ node_js:
   - 8
 env:
   - TASK=lint
-  - TASK=coverage
+  - TASK=test
 before_install:
-  - npm install -g npm codecov greenkeeper-lockfile@1
+  - npm install -g greenkeeper-lockfile@1
 before_script:
   - npx testrpc > /dev/null & 
   - sleep 5
   - greenkeeper-lockfile-update
 after_script: 
   - greenkeeper-lockfile-upload
-  - npm run coverage && cat coverage/lcov.info | coveralls
 script:
   - "npm run $TASK"
