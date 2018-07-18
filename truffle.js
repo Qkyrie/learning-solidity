@@ -51,6 +51,5 @@ module.exports = {
       gasPrice: 0x01
     }
 	},
-	build: {},
 	mocha,
 };

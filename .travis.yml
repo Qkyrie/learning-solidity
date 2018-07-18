@@ -14,17 +14,13 @@ env:
   - TASK=lint
   - TASK=coverage
 before_install:
-- npm install -g npm codecov greenkeeper-lockfile@1
+  - npm install -g npm codecov greenkeeper-lockfile@1
 before_script:
-  - npm prune
+  - npx testrpc > /dev/null & 
+  - sleep 5
   - greenkeeper-lockfile-update
-after_script: greenkeeper-lockfile-upload
+after_script: 
+  - greenkeeper-lockfile-upload
+  - npm run coverage && cat coverage/lcov.info | coveralls
 script:
-- "npm run $TASK"
-- codecov
-addons:
-  apt:
-    sources:
-    - ubuntu-toolchain-r-test
-after_success:
-  - cat coverage/lcov.info | ./node_modules/.bin/coveralls
+  - "npm run $TASK"
