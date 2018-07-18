@@ -1,6 +1,3 @@
-const HDWalletProvider = require("truffle-hdwallet-provider");
-const PrivateKeyProvider = require('truffle-privatekey-provider');
-
 require('dotenv').config();
 'use strict';
 
