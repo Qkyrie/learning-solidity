@@ -11,19 +11,28 @@ contract PaymentChannel {
     address public sender;
     uint public deadline;
 
+    bool public open = true;
+
     constructor(address _sender, address _receiver, uint _deadline) {
         receiver = _receiver;
         sender = _sender;
         deadline = _deadline;
     }
 
-    function submitProof() external returns (bool) {
+    function submitProof(bytes32 _hash, uint8 _v, bytes32 _r, bytes32 _s, uint256 _amount) external returns (bool) {
+        address signer = ecrecover(_hash, _v, _r, _s);
+        require(signer == sender, "signer should match the sender of the payment channel");
+        bytes32 proof = keccak256(address(this), _amount);
+        require(proof == _hash, "signature should match the amount");
+        require(_amount >= address(this).balance, "amount cannot be greater than the balance of the contract");
+        receiver.transfer(_amount);
         return true;
     }
 
     function close() external returns (bool) {
         require(now > deadline, "deadline has not been reached yet");
-        require(sender.send(address(this).balance));
+        sender.transfer(address(this).balance);
+        open = false;
         return true;
     }
 }
