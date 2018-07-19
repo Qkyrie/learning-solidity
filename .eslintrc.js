@@ -2,7 +2,8 @@ module.exports = {
     "extends": "eslint:recommended",
     "parser": "babel-eslint",
     "parserOptions": {
-        "sourceType": "script"
+        "sourceType": "script",
+        "ecmaVersion": 6 
     },
     "rules": {
         "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }]

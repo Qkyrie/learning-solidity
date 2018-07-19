@@ -16,14 +16,15 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
-    "dotenv": "^6.0.0",
-    "ganache-cli": "^6.1.6",
-    "eth-gas-reporter": "^0.1.9",
     "decimal.js": "^10.0.1",
+    "dotenv": "^6.0.0",
+    "eth-gas-reporter": "^0.1.9",
+    "ganache-cli": "^6.1.6",
     "mocha": "^5.2.0",
     "sol-merger": "^0.1.2",
     "solium": "^1.1.8",
     "truffle": "^4.1.13",
+    "truffle-test-utils": "^0.1.0",
     "web3": "^1.0.0-beta.34"
   },
   "dependencies": {
